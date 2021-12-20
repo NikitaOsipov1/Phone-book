@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import {Login as LoginForm} from '../features/auth/components/Login';
 
 export const Login = () => {
   return (
     <Fragment>
-      <h1 className="text-danger text-center">Login form will be here ...</h1>
+      <LoginForm/>
     </Fragment>
   )
 }
