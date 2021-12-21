@@ -11,8 +11,8 @@ export const loginUser = (email: string, password: string) => {
             })
         } else {
             dispatch({
-                type: UserActionTypes.LOGIN_ERROR
-                // payload: {error: 'Credentials are wrong'}
+                type: UserActionTypes.LOGIN_ERROR,
+                payload: {error: 'Credentials are wrong'}
             })
         }
     }

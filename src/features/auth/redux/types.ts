@@ -1,5 +1,5 @@
 export interface UserState {
-    // errors: string[],
+    errors: string[],
     isLogin: boolean
 }
 
@@ -15,7 +15,7 @@ interface LoginUserAction {
 
 interface LoginErrorUserAction {
     type: UserActionTypes.LOGIN_ERROR;
-    // payload: {error: string}
+    payload: {error: string}
 }
 
 interface LogoutUserAction {

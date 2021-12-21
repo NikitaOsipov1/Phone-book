@@ -1,7 +1,7 @@
 import {UserAction, UserActionTypes, UserState} from "./types";
 
 const initialState: UserState = {
-    // errors: [],
+    errors: [],
     isLogin: false
 }
 
@@ -9,18 +9,18 @@ export const userReducer = (state = initialState, action: UserAction): UserState
     switch (action.type) {
         case UserActionTypes.LOGIN:
             return {
-                ...state,
+                errors: [],
                 isLogin: true
             }
         case UserActionTypes.LOGIN_ERROR:
             return {
                 ...state,
                 isLogin: false,
-                // errors: [...state.errors, ...action.payload.error]
+                errors: [action.payload.error]
             }
         case UserActionTypes.LOGOUT:
             return {
-                ...state,
+                errors: [],
                 isLogin: false
             }
         default:
