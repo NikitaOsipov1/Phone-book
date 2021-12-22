@@ -2,8 +2,7 @@ import { UserAction, UserActionTypes, UserState } from "./types";
 
 const initialState: UserState = {
   loggedAt: null,
-  isLogin: false,
-  errors: null
+  isLogin: false
 };
 
 export const userReducer = (state = initialState, action: UserAction): UserState => {
@@ -12,29 +11,19 @@ export const userReducer = (state = initialState, action: UserAction): UserState
       return {
         ...state,
         loggedAt: action.payload.loggedAt,
-        isLogin: true,
-        errors: action.payload.errors
+        isLogin: true
       };
     case UserActionTypes.LOGIN_EXPIRED:
       return {
         ...state,
         loggedAt: null,
-        isLogin: false,
-        errors: action.payload.errors
-      };
-    case UserActionTypes.LOGIN_ERROR:
-      return {
-        ...state,
-        isLogin: false,
-        loggedAt: null,
-        errors: [...action.payload.errors]
+        isLogin: false
       };
     case UserActionTypes.LOGOUT:
       return {
         ...state,
         isLogin: false,
-        loggedAt: null,
-        errors: action.payload.errors
+        loggedAt: null
       };
     default:
       return state;

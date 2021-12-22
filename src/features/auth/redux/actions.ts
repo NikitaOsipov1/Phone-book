@@ -1,45 +1,18 @@
 import { UserAction, UserActionTypes } from "./types";
 import { Dispatch } from "redux";
 
-export const loginUser = (email: string, password: string) => {
-  console.log(email, password);
+export const loginUser = () => {
   return (dispatch: Dispatch<UserAction>) => {
-    if (email !== "test@gmail.com") {
-      return dispatch({
-        type: UserActionTypes.LOGIN_ERROR,
-        payload: {
-          errors: [{
-            field: "email",
-            message: "User with such email doesn`t exist."
-          }]
-        }
-      });
-    }
-
-    if (password !== "Qwerty12") {
-      return dispatch({
-        type: UserActionTypes.LOGIN_ERROR,
-        payload: {
-          errors: [{
-            field: "password",
-            message: "Password is incorrect."
-          }]
-        }
-      });
-    }
-
     dispatch({
       type: UserActionTypes.LOGIN,
       payload: {
-        loggedAt: new Date(),
-        errors: null
+        loggedAt: new Date()
       }
     });
 
     setTimeout(() => {
       dispatch({
-        type: UserActionTypes.LOGIN_EXPIRED,
-        payload: { errors: null }
+        type: UserActionTypes.LOGIN_EXPIRED
       });
     }, 120000);
 
@@ -49,8 +22,7 @@ export const loginUser = (email: string, password: string) => {
 export const logoutUser = () => {
   return (dispatch: Dispatch<UserAction>) => {
     dispatch({
-      type: UserActionTypes.LOGOUT,
-      payload: { errors: null }
+      type: UserActionTypes.LOGOUT
     });
   };
 };

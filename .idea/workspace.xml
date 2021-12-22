@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aac904-9312-40d2-8fc5-4024d783437e" name="Changes" comment="WIP.">
-      <change afterPath="$PROJECT_DIR$/src/store/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/auth/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/components/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/auth/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/hooks/useActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/auth/redux/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/auth/redux/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/auth/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PublicRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PublicRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/Index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/Phones.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/localStorage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/rootReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +83,7 @@
       <workItem from="1640082114136" duration="5447000" />
       <workItem from="1640093357701" duration="9404000" />
       <workItem from="1640158017946" duration="537000" />
+      <workItem from="1640178194669" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="WIP.">
       <created>1640016907334</created>
@@ -126,6 +115,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="WIP." />
     <MESSAGE value="Added auth functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added auth functionality." />
+    <MESSAGE value="Finished with auth." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished with auth." />
   </component>
 </project>

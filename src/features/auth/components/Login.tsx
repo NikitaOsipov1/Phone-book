@@ -1,17 +1,24 @@
-import React, { ReactHTMLElement } from "react";
+import React, { BaseSyntheticEvent } from "react";
 import { useActions } from "../hooks/useActions";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
-
 export const Login = () => {
   const { loginUser } = useActions();
   const navigate = useNavigate();
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit, setError } = useForm();
 
-  function submitHandler(data: any) {
-    loginUser(data.email, data.password);
+  function submitHandler(data: any, e: BaseSyntheticEvent | undefined) {
+    if (data.email !== "test@gmail.com") {
+      return setError("email", { message: "User with such email doesn`t exist." });
+    }
+
+    if (data.password !== "Qwerty12") {
+      return setError("password", { message: "Password is incorrect." });
+    }
+
+    loginUser();
     navigate("/");
   }
 
@@ -39,11 +46,14 @@ export const Login = () => {
                          }
                        })}
               />
-              <p style={{ fontSize: "12px", color: "red" }}><ErrorMessage errors={errors} name="email" /></p>
+              <p style={{
+                fontSize: "12px",
+                color: "red"
+              }}><ErrorMessage errors={errors} name="email" /></p>
             </div>
 
             <div className="d-flex flex-column align-items-center w-100">
-              <input type="text" id="password" className="fadeIn third w-75" placeholder="Password"
+              <input type="password" id="password" className="fadeIn third w-75" placeholder="Password"
                      {...register("password", {
                        required: {
                          value: true,
@@ -59,7 +69,10 @@ export const Login = () => {
                        }
                      })}
               />
-              <p style={{ fontSize: "12px", color: "red" }}><ErrorMessage errors={errors} name="password" /></p>
+              <p style={{
+                fontSize: "12px",
+                color: "red"
+              }}><ErrorMessage errors={errors} name="password" /></p>
             </div>
           </div>
 
