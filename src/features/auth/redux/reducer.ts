@@ -1,29 +1,42 @@
-import {UserAction, UserActionTypes, UserState} from "./types";
+import { UserAction, UserActionTypes, UserState } from "./types";
 
 const initialState: UserState = {
-    errors: [],
-    isLogin: false
-}
+  loggedAt: null,
+  isLogin: false,
+  errors: null
+};
 
 export const userReducer = (state = initialState, action: UserAction): UserState => {
-    switch (action.type) {
-        case UserActionTypes.LOGIN:
-            return {
-                errors: [],
-                isLogin: true
-            }
-        case UserActionTypes.LOGIN_ERROR:
-            return {
-                ...state,
-                isLogin: false,
-                errors: [action.payload.error]
-            }
-        case UserActionTypes.LOGOUT:
-            return {
-                errors: [],
-                isLogin: false
-            }
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case UserActionTypes.LOGIN:
+      return {
+        ...state,
+        loggedAt: action.payload.loggedAt,
+        isLogin: true,
+        errors: action.payload.errors
+      };
+    case UserActionTypes.LOGIN_EXPIRED:
+      return {
+        ...state,
+        loggedAt: null,
+        isLogin: false,
+        errors: action.payload.errors
+      };
+    case UserActionTypes.LOGIN_ERROR:
+      return {
+        ...state,
+        isLogin: false,
+        loggedAt: null,
+        errors: [...action.payload.errors]
+      };
+    case UserActionTypes.LOGOUT:
+      return {
+        ...state,
+        isLogin: false,
+        loggedAt: null,
+        errors: action.payload.errors
+      };
+    default:
+      return state;
+  }
+};

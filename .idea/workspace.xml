@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30aac904-9312-40d2-8fc5-4024d783437e" name="Changes" comment="" />
+    <list default="true" id="30aac904-9312-40d2-8fc5-4024d783437e" name="Changes" comment="WIP.">
+      <change afterPath="$PROJECT_DIR$/src/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/components/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/hooks/useActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/redux/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/redux/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/redux/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/PublicRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PublicRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Phones.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/rootReducer.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +33,21 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,11 +61,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -45,6 +75,7 @@
       <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/store" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/assets/css" />
     </key>
@@ -58,10 +89,43 @@
       <option name="presentableId" value="Default" />
       <updated>1639997750196</updated>
       <workItem from="1639997751337" duration="6433000" />
+      <workItem from="1640016823155" duration="93000" />
+      <workItem from="1640071688889" duration="1839000" />
+      <workItem from="1640073529095" duration="6618000" />
+      <workItem from="1640082114136" duration="5447000" />
+      <workItem from="1640093357701" duration="9404000" />
+      <workItem from="1640158017946" duration="537000" />
     </task>
+    <task id="LOCAL-00001" summary="WIP.">
+      <created>1640016907334</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640016907334</updated>
+    </task>
+    <task id="LOCAL-00002" summary="WIP.">
+      <created>1640089962203</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640089962203</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added auth functionality.">
+      <created>1640103015309</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1640103015309</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="WIP." />
+    <MESSAGE value="Added auth functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added auth functionality." />
   </component>
 </project>

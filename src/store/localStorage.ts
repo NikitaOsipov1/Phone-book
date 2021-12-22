@@ -1,13 +1,10 @@
-import React from 'react'
-import { RootState } from './reducers';
+import { RootState } from './rootReducer';
 
 export const saveState = (state: RootState) => {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem('state', serializedState);
-    } catch {
-        // ignore write errors
-    }
+    } catch {}
 };
 
 export const loadState = () => {

@@ -1,9 +1,11 @@
 import React from 'react';
 import {Navigate, Outlet } from 'react-router-dom';
-import store from '../store/index'
+import { useSelector } from "react-redux";
+import { RootState } from "../store/types";
 
 export const PublicRoute = () => {
-    return !store.getState().user.isLogin
+    const userState = useSelector((state: RootState) => state.user);
+    return !userState.isLogin
         ? <Outlet />
         : <Navigate to="/" />;
 }
