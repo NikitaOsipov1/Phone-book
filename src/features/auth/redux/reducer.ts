@@ -1,29 +1,47 @@
-import { UserAction, UserActionTypes, UserState } from "./types";
+import * as UserActionTypes from "./types";
+import type { Reducer } from "redux";
+import type {UserActions} from './actions';
 
-const initialState: UserState = {
-  loggedAt: null,
-  isLogin: false
+
+const initialState = {
+  email: '',
+  isLoading: false,
+  isLoggedIn: false,
+  error: null as null | Error
 };
 
-export const userReducer = (state = initialState, action: UserAction): UserState => {
+export type UserState = typeof initialState;
+
+export const userReducer: Reducer<UserState, UserActions> = (state = initialState, action) => {
   switch (action.type) {
-    case UserActionTypes.LOGIN:
+    case UserActionTypes.LOGIN_REQUEST:
       return {
         ...state,
-        loggedAt: action.payload.loggedAt,
-        isLogin: true
+        email: '',
+        isLoading: true,
+        error: null,
       };
-    case UserActionTypes.LOGIN_EXPIRED:
+    case UserActionTypes.LOGIN_SUCCESS:
+      const {email} = action.payload;
       return {
         ...state,
-        loggedAt: null,
-        isLogin: false
+        email,
+        isLoggedIn: true,
+        isLoading: false,
+      };
+    case UserActionTypes.LOGIN_ERROR:
+      const {error} = action.payload;
+      return {
+        ...state,
+        error,
+        isLoggedIn: false,
+        isLoading: false,
       };
     case UserActionTypes.LOGOUT:
       return {
         ...state,
-        isLogin: false,
-        loggedAt: null
+        email: '',
+        isLoggedIn: false,
       };
     default:
       return state;

@@ -1,28 +1,32 @@
-import { UserAction, UserActionTypes } from "./types";
-import { Dispatch } from "redux";
+import * as UserActionTypes from "./types";
 
-export const loginUser = () => {
-  return (dispatch: Dispatch<UserAction>) => {
-    dispatch({
-      type: UserActionTypes.LOGIN,
-      payload: {
-        loggedAt: new Date()
-      }
-    });
+export const loginRequest = () => ({
+  type: UserActionTypes.LOGIN_REQUEST,
+})
 
-    setTimeout(() => {
-      dispatch({
-        type: UserActionTypes.LOGIN_EXPIRED
-      });
-    }, 120000);
+export const loginSuccess = (email: string) => ({
+  type: UserActionTypes.LOGIN_SUCCESS,
+  payload: {
+    email,
+  }
+})
 
-  };
-};
+export const loginFailed = (error: Error) => ({
+  type: UserActionTypes.LOGIN_ERROR,
+  payload: {
+    error
+  }
+});
 
-export const logoutUser = () => {
-  return (dispatch: Dispatch<UserAction>) => {
-    dispatch({
-      type: UserActionTypes.LOGOUT
-    });
-  };
-};
+export const logoutUser = () => ({
+  type: UserActionTypes.LOGOUT
+});
+
+
+
+export type UserActions = ReturnType<
+  typeof loginRequest
+  | typeof loginSuccess
+  | typeof loginFailed
+  | typeof logoutUser
+  >

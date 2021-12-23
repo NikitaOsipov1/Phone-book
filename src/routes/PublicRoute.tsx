@@ -1,11 +1,10 @@
-import React from 'react';
-import {Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { RootState } from "../store/types";
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../features/auth/hooks/useAuth";
 
 export const PublicRoute = () => {
-    const userState = useSelector((state: RootState) => state.user);
-    return !userState.isLogin
-        ? <Outlet />
-        : <Navigate to="/" />;
-}
+  const { isLoggedIn } = useAuth();
+  return !isLoggedIn
+    ? <Outlet />
+    : <Navigate to="/" />;
+};

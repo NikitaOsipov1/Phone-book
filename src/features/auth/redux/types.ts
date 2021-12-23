@@ -1,25 +1,5 @@
-export interface UserState {
-  loggedAt: Date | null,
-  isLogin: boolean
-}
+export const LOGIN_REQUEST = '[auth]LOGIN_REQUEST' as const;
+export const LOGIN_SUCCESS = '[auth]LOGIN_SUCCESS' as const;
+export const LOGIN_ERROR = '[auth]LOGIN_ERROR' as const;
+export const LOGOUT = '[auth]LOGOUT' as const;
 
-export enum UserActionTypes {
-  LOGIN = "LOGIN",
-  LOGOUT = "LOGOUT",
-  LOGIN_EXPIRED = "LOGIN_EXPIRED",
-}
-
-interface LoginUserAction {
-  type: UserActionTypes.LOGIN;
-  payload: { loggedAt: Date | null };
-}
-
-interface LoginExpiredUserAction {
-  type: UserActionTypes.LOGIN_EXPIRED;
-}
-
-interface LogoutUserAction {
-  type: UserActionTypes.LOGOUT;
-}
-
-export type UserAction = LoginUserAction | LogoutUserAction | LoginExpiredUserAction

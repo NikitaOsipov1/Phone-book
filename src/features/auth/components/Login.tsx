@@ -1,25 +1,23 @@
-import React, { BaseSyntheticEvent } from "react";
-import { useActions } from "../hooks/useActions";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useAuth } from "src/features/auth/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import userIcon from 'src/assets/user.svg'
+
+type FormData = {email: string, password: string};
 
 export const Login = () => {
-  const { loginUser } = useActions();
-  const navigate = useNavigate();
-  const { register, formState: { errors }, handleSubmit, setError } = useForm();
+  const { onLogin } = useAuth();
+  const { register, formState: { errors }, handleSubmit, setError } = useForm<FormData>();
 
-  function submitHandler(data: any, e: BaseSyntheticEvent | undefined) {
+  function submitHandler(data: FormData) {
     if (data.email !== "test@gmail.com") {
       return setError("email", { message: "User with such email doesn`t exist." });
     }
-
     if (data.password !== "Qwerty12") {
       return setError("password", { message: "Password is incorrect." });
     }
-
-    loginUser();
-    navigate("/");
+    onLogin(data.email, data.password);
   }
 
   return (
@@ -27,7 +25,7 @@ export const Login = () => {
       <div className="text-center w-50">
 
         <div className="fadeIn first text-center">
-          <img src="user.svg" id="icon" alt="User Icon" width="90px" height="90px" />
+          <img src={userIcon} id="icon" alt="User Icon" width="90px" height="90px" />
         </div>
 
         <form id="loginForm" onSubmit={handleSubmit(submitHandler)}>

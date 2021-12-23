@@ -4,6 +4,7 @@ import { Login } from "./shared/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
+import { ROUTES } from "./routes/constants";
 
 function App() {
   return (
@@ -11,12 +12,12 @@ function App() {
       <div className="container pt-4 h-75">
         <Routes>
 
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="/" element={<Index />} />
+          <Route path={ROUTES.main} element={<PrivateRoute />}>
+            <Route path={ROUTES.main} element={<Index />} />
           </Route>
 
-          <Route path="/login" element={<PublicRoute />}>
-            <Route path="/login" element={<Login />} />
+          <Route path={ROUTES.login} element={<PublicRoute />}>
+            <Route path={ROUTES.login} element={<Login />} />
           </Route>
 
         </Routes>
