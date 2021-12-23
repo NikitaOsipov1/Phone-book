@@ -2,7 +2,6 @@ import * as UserActionTypes from "./types";
 import type { Reducer } from "redux";
 import type {UserActions} from './actions';
 
-
 const initialState = {
   email: '',
   isLoading: false,
