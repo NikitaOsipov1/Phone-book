@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "src/store/types";
-import { useCallback } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "src/store/types";
+import {useCallback} from "react";
 import {loginThunk, logoutThunk} from '../redux/thunks'
 
 export const useAuth = () => {
