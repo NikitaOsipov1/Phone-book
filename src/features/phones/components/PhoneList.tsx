@@ -6,7 +6,7 @@ import {Phone} from './Phone';
 
 export const PhoneList = () => {
     const phonesState = useSelector((state: RootState) => state.phones.phones);
-    const sortedByName = phonesState.sort((a, b) => {
+    phonesState.sort((a, b) => {
         let nameA = a.name.first.toLowerCase(),
             nameB = b.name.first.toLowerCase();
 
@@ -21,7 +21,7 @@ export const PhoneList = () => {
         return 0;
     })
 
-    let firstLetter = sortedByName[0].name.first.charAt(0);
+    let firstLetter = phonesState[0].name.first.charAt(0);
 
     return (
         <div>
@@ -41,15 +41,15 @@ export const PhoneList = () => {
                     <th colSpan={6} style={{textAlign: "left", paddingLeft: "20px"}}>{firstLetter}</th>
                 </tr>
 
-                {phonesState.map((phone, index) => {
+                {phonesState.map((contact, index) => {
                     let component = null;
-                    if (firstLetter !== phone.name.first.charAt(0)) {
-                        firstLetter = phone.name.first.charAt(0);
+                    if (firstLetter !== contact.name.first.charAt(0)) {
+                        firstLetter = contact.name.first.charAt(0);
                         component = (<tr key={index}>
                             <th colSpan={6} style={{textAlign: "left", paddingLeft: "20px"}}>{firstLetter}</th>
                         </tr>);
                     }
-                    return [component, (<Phone {...phone} key={phone.id}/>)];
+                    return [component, (<Phone {...contact} key={contact.id}/>)];
                 })}
                 </tbody>
             </table>
