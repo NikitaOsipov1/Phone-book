@@ -14,7 +14,6 @@ export const getPhoneError = (e: Error) => ({
 });
 
 
-
 export const addPhone = (phone: PhoneState) => ({
     type: PhoneActionTypes.PHONE_ADD_REQUEST,
     payload: phone

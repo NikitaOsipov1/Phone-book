@@ -1,19 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
-import { useAuth } from 'src/features/auth/hooks/useAuth';
+import {useAuth} from 'src/features/auth/hooks/useAuth';
 import {usePhone} from 'src/features/phones/hooks/usePhone';
-import { ROUTES } from 'src/routes/constants';
-import { RootState } from 'src/store/rootReducer';
+import {ROUTES} from 'src/routes/constants';
+import {RootState} from 'src/store/rootReducer';
 
 export const Phone = () => {
     const {id} = useParams();
     const {onLogout} = useAuth();
-    const {onGetPhone} = usePhone();
     const phonesState = useSelector((state: RootState) => state.phones.phones);
 
-    const phone = phonesState.find((phone) => {
-        if (phone.id === id){
+    const phone = phonesState.find(phone => {
+        if (phone.id === id) {
             return phone;
         }
     })
@@ -25,10 +24,43 @@ export const Phone = () => {
                 <a href={ROUTES.main} className="btn btn-warning">All contacts</a>
                 <button className="btn btn-primary float-end" onClick={onLogout}>Logout</button>
             </div>
-            <div className="mt-5">
-                <span className="d-flex justify-content-around"><p>Name</p>{phone && (phone.name.first + ' ' + phone.name.last)}</span>
-                <span className="d-flex justify-content-around"><p>Phone</p>{phone && phone.phone}</span>
-                <span className="d-flex justify-content-around"><p>Age</p>{phone && phone.age}</span>
+            <div className="mt-5 d-flex justify-content-center">
+                <table>
+                    <thead className="d-inline-block" style={{paddingRight: "20px"}}>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody className="d-inline-block">
+                        <tr>
+                            <td>{phone && (phone.name.first + ' ' + phone.name.last)}</td>
+                        </tr>
+                        <tr>
+                            <td>{phone && (phone.phone)}</td>
+                        </tr>
+                        <tr>
+                            <td>{phone && (phone.address)}</td>
+                        </tr>
+                        <tr>
+                            <td>{phone && (phone.email)}</td>
+                        </tr>
+                        <tr>
+                            <td>{phone && (phone.age)}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </div>

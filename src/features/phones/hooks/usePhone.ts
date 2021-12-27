@@ -7,12 +7,7 @@ export const usePhone = () => {
     const dispatch = useDispatch();
     const phonesState = useSelector((state: RootState) => state.phones.phones);
 
-    const onGetPhone = useCallback((email: string, _password: string) => {
-        dispatch(getPhoneThunk(email));
-    }, [dispatch])
-
     return {
-        ...phonesState,
-        onGetPhone
+        ...phonesState
     }
 }

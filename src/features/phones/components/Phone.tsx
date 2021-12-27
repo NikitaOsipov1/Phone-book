@@ -1,5 +1,5 @@
 import React from 'react';
-import { ROUTES } from 'src/routes/constants';
+import {ROUTES} from 'src/routes/constants';
 import {PhoneState} from '../redux/reducer';
 
 export const Phone = (phoneObject: PhoneState) => {

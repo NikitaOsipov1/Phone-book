@@ -1,26 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import store from 'src/store';
-import { RootState } from 'src/store/rootReducer';
+import {RootState} from 'src/store/rootReducer';
 import {Phone} from './Phone';
 
 export const PhoneList = () => {
     const phonesState = useSelector((state: RootState) => state.phones.phones);
-
     const sortedByName = phonesState.sort((a, b) => {
         let nameA = a.name.first.toLowerCase(),
             nameB = b.name.first.toLowerCase();
 
-        if(nameA < nameB){
+        if (nameA < nameB) {
             return -1;
         }
 
-        if(nameA > nameB){
+        if (nameA > nameB) {
             return 1;
         }
 
         return 0;
     })
+
+    let firstLetter = sortedByName[0].name.first.charAt(0);
 
     return (
         <div>
@@ -36,7 +37,20 @@ export const PhoneList = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {phonesState.map(phone => (<Phone {...phone} key={phone.id}/>))}
+                <tr key={0}>
+                    <th colSpan={6} style={{textAlign: "left", paddingLeft: "20px"}}>{firstLetter}</th>
+                </tr>
+
+                {phonesState.map((phone, index) => {
+                    let component = null;
+                    if (firstLetter !== phone.name.first.charAt(0)) {
+                        firstLetter = phone.name.first.charAt(0);
+                        component = (<tr key={index}>
+                            <th colSpan={6} style={{textAlign: "left", paddingLeft: "20px"}}>{firstLetter}</th>
+                        </tr>);
+                    }
+                    return [component, (<Phone {...phone} key={phone.id}/>)];
+                })}
                 </tbody>
             </table>
         </div>
