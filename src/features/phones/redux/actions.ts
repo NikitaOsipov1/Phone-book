@@ -1,35 +1,36 @@
-import {PhoneState} from "./reducer";
+import { PhoneState } from "./reducer";
 import * as PhoneActionTypes from "./types";
 
-export const getPhoneRequest = () => ({
-    type: PhoneActionTypes.PHONE_GET_REQUEST
+export const getPhonesRequest = () => ({
+  type: PhoneActionTypes.PHONES_GET_REQUEST
 });
 
-export const getPhoneSuccess = () => ({
-    type: PhoneActionTypes.PHONE_GET_SUCCESS
+export const getPhonesSuccess = (phones: Array<PhoneState>) => ({
+  type: PhoneActionTypes.PHONES_GET_SUCCESS,
+  payload: { phones: phones }
 });
 
-export const getPhoneError = (e: Error) => ({
-    type: PhoneActionTypes.PHONE_GET_ERROR
+export const getPhonesError = (e: Error) => ({
+  type: PhoneActionTypes.PHONES_GET_ERROR,
+  payload: { error: e }
 });
-
 
 export const addPhone = (phone: PhoneState) => ({
-    type: PhoneActionTypes.PHONE_ADD_REQUEST,
-    payload: phone
-})
+  type: PhoneActionTypes.PHONE_ADD_REQUEST,
+  payload: phone
+});
 
 export const editPhone = () => ({
-    type: PhoneActionTypes.PHONE_EDIT_REQUEST,
-})
+  type: PhoneActionTypes.PHONE_EDIT_REQUEST
+});
 
-export const deletePhone = () => ({
-    type: PhoneActionTypes.PHONE_DELETE,
+export const deletePhoneRequest = () => ({
+  type: PhoneActionTypes.PHONE_DELETE_REQUEST
 });
 
 export type PhoneActions = ReturnType<typeof addPhone
-    | typeof editPhone
-    | typeof deletePhone
-    | typeof getPhoneRequest
-    | typeof getPhoneSuccess
-    | typeof getPhoneError>
+  | typeof editPhone
+  | typeof deletePhoneRequest
+  | typeof getPhonesRequest
+  | typeof getPhonesSuccess
+  | typeof getPhonesError>

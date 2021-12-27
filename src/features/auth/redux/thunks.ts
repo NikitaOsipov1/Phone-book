@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import * as actions from "./actions";
 import { Dispatch } from "redux";
 
 
@@ -10,7 +10,7 @@ export const loginThunk = (email: string) => async (dispatch: Dispatch) => {
     if (email) {
       dispatch(actions.loginSuccess(email));
     } else {
-      dispatch(actions.loginFailed(new Error('')));
+      dispatch(actions.loginFailed(new Error("")));
     }
 
   } catch (e) {

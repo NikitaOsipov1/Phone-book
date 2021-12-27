@@ -1,7 +1,7 @@
 export const ROUTES = {
-  main: '/',
-  login: '/login',
+  main: "/",
+  login: "/login",
   dynamic: {
-    viewPhone: (id = ':id') => `/${id}`,
-  },
+    viewPhone: (id = ":id") => `/${id}`
+  }
 };

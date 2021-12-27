@@ -1,13 +1,13 @@
-import {applyMiddleware, createStore} from "redux";
-import {rootReducer} from "./rootReducer";
+import { applyMiddleware, createStore } from "redux";
+import { rootReducer } from "./rootReducer";
 import thunk from "redux-thunk";
-import {saveState, loadState} from './localStorage'
+import { saveState, loadState } from "./localStorage";
 
 const persistedState = loadState();
-const store = createStore(rootReducer, persistedState, applyMiddleware(thunk))
+const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
-    saveState(store.getState());
+  saveState(store.getState());
 });
 
-export default store
+export default store;
