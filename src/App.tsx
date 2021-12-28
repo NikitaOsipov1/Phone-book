@@ -6,6 +6,8 @@ import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
 import { ROUTES } from "./routes/constants";
 import { Phone } from "./shared/Phone";
+import { AddPhone } from "./shared/AddPhone";
+import { EditPhone } from "./shared/EditPhone";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
 
           <Route path={ROUTES.dynamic.viewPhone()} element={<PrivateRoute />}>
             <Route path={ROUTES.dynamic.viewPhone()} element={<Phone />} />
+          </Route>
+
+          <Route path={ROUTES.dynamic.editPhone()} element={<PrivateRoute />}>
+            <Route path={ROUTES.dynamic.editPhone()} element={<EditPhone />} />
+          </Route>
+
+          <Route path={ROUTES.addPhone} element={<PrivateRoute />}>
+            <Route path={ROUTES.addPhone} element={<AddPhone />} />
           </Route>
 
           <Route path={ROUTES.login} element={<PublicRoute />}>
