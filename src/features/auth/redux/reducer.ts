@@ -4,6 +4,7 @@ import type { UserActions } from "./actions";
 
 const initialState = {
   email: "",
+  loggedInAt: 0,
   isLoading: false,
   isLoggedIn: false,
   error: null as null | Error
@@ -21,10 +22,11 @@ export const userReducer: Reducer<UserState, UserActions> = (state = initialStat
         error: null
       };
     case UserActionTypes.LOGIN_SUCCESS:
-      const { email } = action.payload;
+      const { email, loggedInAt } = action.payload;
       return {
         ...state,
-        email,
+        email: email,
+        loggedInAt: loggedInAt,
         isLoggedIn: true,
         isLoading: false
       };
@@ -32,7 +34,7 @@ export const userReducer: Reducer<UserState, UserActions> = (state = initialStat
       const { error } = action.payload;
       return {
         ...state,
-        error,
+        error: error,
         isLoggedIn: false,
         isLoading: false
       };

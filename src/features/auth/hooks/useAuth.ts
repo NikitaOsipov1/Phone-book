@@ -7,8 +7,8 @@ export const useAuth = () => {
   const dispatch = useDispatch();
   const userState = useSelector((state: RootState) => state.user);
 
-  const onLogin = useCallback((email: string, _password: string) => {
-    dispatch(loginThunk(email));
+  const onLogin = useCallback((email: string) => {
+    dispatch(loginThunk(email, userState));
   }, [dispatch]);
 
   const onLogout = useCallback(() => {

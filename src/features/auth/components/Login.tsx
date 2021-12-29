@@ -17,7 +17,7 @@ export const Login = () => {
     if (data.password !== "Qwerty12") {
       return setError("password", { message: "Password is incorrect." });
     }
-    onLogin(data.email, data.password);
+    onLogin(data.email);
   }
 
   return (
