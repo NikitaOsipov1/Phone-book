@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
 import { ROUTES } from "./routes/constants";
+import { Phone } from "./shared/Phone";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
 
           <Route path={ROUTES.main} element={<PrivateRoute />}>
             <Route path={ROUTES.main} element={<Index />} />
+          </Route>
+
+          <Route path={ROUTES.dynamic.viewPhone()} element={<PrivateRoute />}>
+            <Route path={ROUTES.dynamic.viewPhone()} element={<Phone />} />
           </Route>
 
           <Route path={ROUTES.login} element={<PublicRoute />}>
