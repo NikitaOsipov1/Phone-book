@@ -1,12 +1,12 @@
 import React from "react";
 import { ErrorMessage } from "@hookform/error-message";
 import InputMask from "react-input-mask";
-import { UseFormRegister } from "react-hook-form";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { EditablePhone } from "../redux/reducer";
 
-export interface IContactFormProps {
+interface IContactFormProps {
   register: UseFormRegister<EditablePhone>
-  errors: any
+  errors: FieldErrors<EditablePhone>
 }
 
 export const ContactForm: React.FC<IContactFormProps> = (props) => {
