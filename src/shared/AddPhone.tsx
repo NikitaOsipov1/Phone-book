@@ -1,13 +1,24 @@
 import React from "react";
 import { usePhone } from "../features/phones/hooks/usePhone";
-import { PhoneForm } from "../features/phones/components/PhoneForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../routes/constants";
 import { useAuth } from "../features/auth/hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { EditablePhone } from "../features/phones/redux/reducer";
+import { ContactForm } from "../features/phones/components/ContactForm";
 
 export const AddPhone = () => {
   const { addPhone } = usePhone();
   const { onLogout } = useAuth();
+
+  const navigate = useNavigate();
+
+  const { register, formState: { errors }, handleSubmit } = useForm<EditablePhone>();
+
+  function submitHandler(data: EditablePhone) {
+    addPhone(data);
+    navigate("/");
+  }
 
   return (
     <div>
@@ -16,7 +27,10 @@ export const AddPhone = () => {
         <Link to={ROUTES.main} className="btn btn-warning">All contacts</Link>
         <button className="btn btn-primary float-end" onClick={onLogout}>Logout</button>
       </div>
-      <PhoneForm action={addPhone} />
+
+      <form className="w-75 m-auto mt-5" onSubmit={handleSubmit(submitHandler)}>
+        <ContactForm register={register} errors={errors}/>
+      </form>
     </div>
   );
 };

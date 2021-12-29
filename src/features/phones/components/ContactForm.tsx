@@ -1,29 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
 import InputMask from "react-input-mask";
-import { useForm } from "react-hook-form";
-import { EditablePhone, PhoneState } from "../redux/reducer";
+import { UseFormRegister } from "react-hook-form";
+import { EditablePhone } from "../redux/reducer";
 
-export const PhoneForm = (action: any, currentState: PhoneState | undefined) => {
-  const navigate = useNavigate();
+export interface IContactFormProps {
+  register: UseFormRegister<EditablePhone>
+  errors: any
+}
 
-  const { register, formState: { errors }, handleSubmit } = useForm<PhoneState>({
-    defaultValues: { ...currentState }
-  });
-
-  function submitHandler(data: PhoneState) {
-    action(data);
-    navigate("/");
-  }
-
+export const ContactForm: React.FC<IContactFormProps> = (props) => {
   return (
-    <form className="w-75 m-auto mt-5" onSubmit={handleSubmit(submitHandler)}>
+    <div>
       <div className="form-group d-flex justify-content-between m-3">
         <div className="form-group text-center w-100">
           <label htmlFor="first_name">First name</label>
           <input type="text" className="form-control" id="first_name" placeholder="Enter first name"
-                 {...register("name.first",
+                 {...props.register("name.first",
                    {
                      required: {
                        value: true,
@@ -34,13 +27,13 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
           <p style={{
             fontSize: "12px",
             color: "red"
-          }}><ErrorMessage errors={errors} name="first_name" /></p>
+          }}><ErrorMessage errors={props.errors} name="first_name" /></p>
         </div>
 
         <div className="form-group text-center w-100">
           <label htmlFor="last_name">Last name</label>
           <input type="text" className="form-control" id="last_name" placeholder="Enter last name"
-                 {...register("name.last",
+                 {...props.register("name.last",
                    {
                      required: {
                        value: true,
@@ -51,14 +44,14 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
           <p style={{
             fontSize: "12px",
             color: "red"
-          }}><ErrorMessage errors={errors} name="last_name" /></p>
+          }}><ErrorMessage errors={props.errors} name="last_name" /></p>
         </div>
       </div>
 
       <div className="form-group text-center d-flex flex-column align-items-center w-100">
         <label htmlFor="address">Address</label>
         <input type="text" className="form-control" id="address" placeholder="Enter address"
-               {...register("address")}
+               {...props.register("address")}
         />
       </div>
 
@@ -73,7 +66,7 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
                    border: "2px solid #f6f6f6"
                  }}
 
-                 {...register("age",
+                 {...props.register("age",
                    {
                      required: {
                        value: true,
@@ -92,13 +85,13 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
           <p style={{
             fontSize: "12px",
             color: "red"
-          }}><ErrorMessage errors={errors} name="age" /></p>
+          }}><ErrorMessage errors={props.errors} name="age" /></p>
         </div>
 
         <div className="form-group text-center w-100">
           <label htmlFor="company">Company</label>
           <input type="text" className="form-control" id="company" placeholder="Enter company"
-                 {...register("company")}
+                 {...props.register("company")}
           />
         </div>
       </div>
@@ -106,8 +99,8 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
       <div className="form-group d-flex justify-content-between m-3">
         <div className="form-group text-center d-flex flex-column align-items-center w-100">
           <label htmlFor="email">Email</label>
-          <input type="text" className="form-control" id="email" placeholder="Enter email" value={currentState?.email ?? ''}
-                 {...register("email",
+          <input type="text" className="form-control" id="email" placeholder="Enter email"
+                 {...props.register("email",
                    {
                      required: {
                        value: true,
@@ -122,14 +115,15 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
           <p style={{
             fontSize: "12px",
             color: "red"
-          }}><ErrorMessage errors={errors} name="email" /></p>
+          }}>
+              <ErrorMessage errors={props.errors} name="email" /></p>
         </div>
 
         <div className="form-group text-center d-flex flex-column align-items-center w-100">
           <label htmlFor="phone">Phone</label>
-          <InputMask type="text" className="form-control" id="phone" placeholder="ex. +1 (974) 540-2046" value={currentState?.phone ?? ''}
+          <InputMask type="text" className="form-control" id="phone" placeholder="ex. +1 (974) 540-2046"
                      mask="+1 (999) 999-9999"
-                     {...register("phone",
+                     {...props.register("phone",
                        {
                          required: {
                            value: true,
@@ -144,14 +138,14 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
           <p style={{
             fontSize: "12px",
             color: "red"
-          }}><ErrorMessage errors={errors} name="phone" /></p>
+          }}><ErrorMessage errors={props.errors} name="phone" /></p>
 
         </div>
       </div>
 
       <div className="form-group form-check d-flex justify-content-center m-3">
         <input type="checkbox" className="form-check-input" id="isActive"
-               {...register("isActive")}
+               {...props.register("isActive")}
         />
         <label className="form-check-label" htmlFor="is_active" style={{ cursor: "pointer", marginLeft: "10px" }}>
           Is active?
@@ -161,7 +155,6 @@ export const PhoneForm = (action: any, currentState: PhoneState | undefined) => 
       <div className="from-group d-flex justify-content-center mt-5">
         <button type="submit" className="btn btn-success w-25">Submit</button>
       </div>
-
-    </form>
+    </div>
   );
 };
