@@ -23,7 +23,7 @@ export const PhoneList = ({ phones }: PhoneListProps) => {
         </tr>
         </thead>
         <tbody>
-        {phones && phones.map((contact, index) => {
+        {phones?.map((contact, index) => {
           let component = null;
           if (getFirstLetter(index) !== getFirstLetter(index - 1)) {
             component = (<tr key={index}>

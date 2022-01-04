@@ -1,5 +1,5 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useMemo } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useAuth } from "src/features/auth/hooks/useAuth";
 import { usePhone } from "src/features/phones/hooks/usePhone";
 import { ROUTES } from "src/routes/constants";
@@ -9,17 +9,13 @@ export const Phone = () => {
   const { onLogout } = useAuth();
   const { phones } = usePhone();
 
-  const phone = phones!.find(phone => {
-    if (phone.id === id) {
-      return phone;
-    }
-  });
+  const phone = useMemo(() => phones?.find(p => p.id === id), [id,phones])
 
-  return (
+  return phone ? (
     <div>
       <div className="d-flex justify-content-around">
         <h3>Contact info</h3>
-        <a href={ROUTES.main} className="btn btn-warning">All contacts</a>
+        <Link to={ROUTES.main} className="btn btn-warning">All contacts</Link>
         <button className="btn btn-primary float-end" onClick={onLogout}>Logout</button>
       </div>
       <div className="mt-5 d-flex justify-content-center">
@@ -61,6 +57,10 @@ export const Phone = () => {
         </table>
       </div>
 
+    </div>
+  ) : (
+    <div>
+      Not found
     </div>
   );
 };
