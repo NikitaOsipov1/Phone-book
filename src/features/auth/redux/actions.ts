@@ -1,7 +1,10 @@
 import * as UserActionTypes from "./types";
 
-export const loginRequest = () => ({
-  type: UserActionTypes.LOGIN_REQUEST
+export const loginRequest = (email: string) => ({
+  type: UserActionTypes.LOGIN_REQUEST,
+  payload: {
+    email
+  }
 });
 
 export const loginSuccess = (email: string) => ({
