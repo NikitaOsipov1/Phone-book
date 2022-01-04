@@ -25,8 +25,13 @@ export const logoutUser = () => ({
   type: UserActionTypes.LOGOUT
 });
 
+export const checkLoginExpiration = () => ({
+  type: UserActionTypes.CHECK_LOGIN_EXPIRATION
+});
+
 
 export type UserActions = ReturnType<typeof loginRequest
   | typeof loginSuccess
   | typeof loginFailed
-  | typeof logoutUser>
+  | typeof logoutUser
+  | typeof checkLoginExpiration>

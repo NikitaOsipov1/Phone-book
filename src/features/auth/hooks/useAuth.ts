@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "src/store/types";
 import { useCallback } from "react";
-import {loginRequest, logoutUser} from "../redux/actions";
+import {checkLoginExpiration, loginRequest, logoutUser} from "../redux/actions";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
@@ -15,9 +15,14 @@ export const useAuth = () => {
     dispatch(logoutUser());
   }, [dispatch]);
 
+  const onCheckLoginExpiration = useCallback(() => {
+    dispatch(checkLoginExpiration());
+  }, [dispatch]);
+
   return {
     ...userState,
     onLogin,
-    onLogout
+    onLogout,
+    onCheckLoginExpiration
   };
 };

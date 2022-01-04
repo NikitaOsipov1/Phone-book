@@ -1,21 +1,11 @@
-import { RootState } from "./rootReducer";
+export const setItem = (key: string, value: string) => {
+    localStorage.setItem(key, value);
+}
 
-export const saveState = (state: RootState) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem("state", serializedState);
-  } catch {
-  }
-};
+export const getItem = (key: string) => {
+    return localStorage.getItem(key);
+}
 
-export const loadState = () => {
-  try {
-    const serializedState = localStorage.getItem("state");
-    if (serializedState === null) {
-      return undefined;
-    }
-    return JSON.parse(serializedState);
-  } catch (error) {
-    return undefined;
-  }
-};
+export const removeItem = (key: string) => {
+    localStorage.removeItem(key);
+}
