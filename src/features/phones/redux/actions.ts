@@ -1,12 +1,5 @@
-import { PhoneState } from "./reducer";
+import {EditablePhone, PhoneState} from "./reducer";
 import * as PhoneActionTypes from "./types";
-import {
-  PHONE_ADD_ERROR,
-  PHONE_ADD_SUCCESS,
-  PHONE_DELETE_ERROR,
-  PHONE_DELETE_SUCCESS,
-  PHONE_EDIT_SUCCESS
-} from "./types";
 
 export const getPhonesRequest = () => ({
   type: PhoneActionTypes.PHONES_GET_REQUEST
@@ -22,8 +15,9 @@ export const getPhonesError = (e: Error) => ({
   payload: { error: e }
 });
 
-export const addPhoneRequest = () => ({
+export const addPhoneRequest = (phone: EditablePhone) => ({
   type: PhoneActionTypes.PHONE_ADD_REQUEST,
+  payload: { contact: phone }
 });
 
 export const addPhoneSuccess = (phone: PhoneState) => ({
@@ -36,8 +30,9 @@ export const addPhoneError = (e: Error) => ({
   payload: { error: e }
 });
 
-export const editPhoneRequest = () => ({
-  type: PhoneActionTypes.PHONE_EDIT_REQUEST
+export const editPhoneRequest = (contact: EditablePhone, id: string) => ({
+  type: PhoneActionTypes.PHONE_EDIT_REQUEST,
+  payload: { contact: contact, id: id }
 });
 
 export const editPhoneSuccess = (phone: PhoneState) => ({
@@ -50,8 +45,9 @@ export const editPhoneError = (e: Error) => ({
   payload: { error: e }
 });
 
-export const deletePhoneRequest = () => ({
-  type: PhoneActionTypes.PHONE_DELETE_REQUEST
+export const deletePhoneRequest = (id: string) => ({
+  type: PhoneActionTypes.PHONE_DELETE_REQUEST,
+  payload: { id: id }
 });
 
 export const deletePhoneSuccess = (id: string) => ({

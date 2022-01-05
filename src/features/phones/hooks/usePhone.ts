@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "src/store/types";
 import { useCallback, useMemo } from "react";
-import { addPhoneThunk, deletePhoneThunk, editPhoneThunk, getPhonesThunk } from "../redux/thunks";
 import sortByFirstName from "../utils/sortByFirstName";
 import { EditablePhone } from "../redux/reducer";
+
+import {addPhoneRequest, deletePhoneRequest, editPhoneRequest, getPhonesRequest} from "../redux/actions";
 
 export const usePhone = () => {
   const dispatch = useDispatch();
@@ -11,21 +12,19 @@ export const usePhone = () => {
   const sortedContactsByName = useMemo(() => phones?.sort(sortByFirstName) || [], [phones]);
 
   const getPhones = useCallback(() => {
-    if (phones.length <= 0) {
-      dispatch(getPhonesThunk());
-    }
+      dispatch(getPhonesRequest());
   }, [dispatch]);
 
   const addPhone = useCallback((phone: EditablePhone) => {
-    dispatch(addPhoneThunk(phone));
+    dispatch(addPhoneRequest(phone));
   }, [dispatch]);
 
   const editPhone = useCallback((phone: EditablePhone, id: string) => {
-    dispatch(editPhoneThunk(phone, id));
+    dispatch(editPhoneRequest(phone, id));
   }, [dispatch]);
 
   const deletePhone = useCallback((id: string) => {
-    dispatch(deletePhoneThunk(id));
+    dispatch(deletePhoneRequest(id));
   }, [dispatch]);
 
   return {
