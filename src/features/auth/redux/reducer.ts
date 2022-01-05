@@ -42,10 +42,6 @@ export const userReducer: Reducer<UserState, UserActions> = (state = initialStat
         email: "",
         isLoggedIn: false
       };
-    case UserActionTypes.CHECK_LOGIN_EXPIRATION:
-      return {
-        ...state
-      };
     default:
       return state;
   }
