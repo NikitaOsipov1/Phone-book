@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Index } from "./shared/Index";
 import { Login } from "./shared/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,8 +8,14 @@ import { ROUTES } from "./routes/constants";
 import { Phone } from "./shared/Phone";
 import { AddPhone } from "./shared/AddPhone";
 import { EditPhone } from "./shared/EditPhone";
+import {useAuth} from "./features/auth/hooks/useAuth";
 
 function App() {
+  const {onCheckLoginExpiration} = useAuth();
+  useEffect(() => {
+    onCheckLoginExpiration()
+  }, [onCheckLoginExpiration])
+
   return (
     <Router>
       <div className="container pt-4 h-75">
